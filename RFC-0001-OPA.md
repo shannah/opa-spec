@@ -67,7 +67,9 @@ Archives SHOULD use `DEFLATE` compression for text-based entries and MAY use `ST
 <archive>.opa
 │
 ├── META-INF/
-│   └── MANIFEST.MF          # Required. Archive manifest.
+│   ├── MANIFEST.MF          # Required. Archive manifest.
+│   ├── SIGNATURE.SF         # Optional. Signature file (if signed).
+│   └── SIGNATURE.{RSA,DSA,EC} # Optional. Signature block (if signed).
 │
 ├── prompt.md                # Required. The primary prompt file.
 │
@@ -317,7 +319,7 @@ Extensions MUST be declared in the manifest's `Schema-Extensions` field as space
 
 ```
 Schema-Extensions: https://example.com/opa-ext/tool-config/v1
-                   https://example.com/opa-ext/signing/v1
+                   https://example.com/opa-ext/encryption/v1
 ```
 
 ### 10.2 Extension Files
@@ -344,9 +346,40 @@ Session history and data assets are user-supplied content and MUST be treated as
 
 Clients operating in `autonomous` mode MUST enforce maximum turn counts and token budgets to prevent runaway execution. Recommended defaults: 50 turns, 200,000 tokens.
 
-### 11.4 Signing (Future Work)
+### 11.4 Signing
 
-A signing extension is planned to allow archive authors to sign manifests and contents. Until ratified, clients MAY implement signing using `META-INF/SIGNATURE.SF` following the JAR signing convention.
+OPA archives support digital signing following the [JAR signing convention](https://docs.oracle.com/en/java/docs/specs/jar/jar.html#signed-jar-file). Signing allows archive consumers to verify the identity of the author and the integrity of the archive contents.
+
+#### 11.4.1 Signature Files
+
+A signed archive MUST contain a **signature file** (`META-INF/SIGNATURE.SF`) and a **signature block file** (`META-INF/SIGNATURE.RSA`, `.DSA`, or `.EC`). The signature file contains digests of the manifest and its individual sections. The signature block file contains the PKCS #7 digital signature of `SIGNATURE.SF`. The file extension indicates the algorithm used.
+
+#### 11.4.2 Signature File Format
+
+The signature file (`SIGNATURE.SF`) follows the JAR `.SF` format. The main section MUST include `Signature-Version: 1.0` and a digest of the entire manifest file. Each individual section contains a digest of the corresponding named section in `META-INF/MANIFEST.MF`.
+
+```
+Signature-Version: 1.0
+Created-By: opa-cli 1.0.0
+SHA-256-Digest-Manifest: <base64-encoded digest of entire MANIFEST.MF>
+
+Name: prompt.md
+SHA-256-Digest: <base64-encoded digest of the prompt.md section in MANIFEST.MF>
+```
+
+#### 11.4.3 Digest Algorithms
+
+Implementations MUST support `SHA-256`. Implementations MAY additionally support `SHA-384` and `SHA-512`. Implementations MUST NOT accept `MD5` or `SHA-1` digests.
+
+#### 11.4.4 Verification
+
+Clients MUST verify signatures when the archive contains both a `META-INF/SIGNATURE.SF` file and a corresponding signature block file. Verification proceeds as follows: (1) verify the digital signature in the signature block file against `SIGNATURE.SF`; (2) verify that the manifest digest in `SIGNATURE.SF` matches the actual `MANIFEST.MF` contents; (3) for each named entry in `SIGNATURE.SF`, verify that the section digest matches the corresponding section in `MANIFEST.MF`. If any verification step fails, the client MUST reject the archive.
+
+Clients SHOULD NOT execute unsigned archives in `autonomous` mode unless the user has explicitly opted in. Signed archives provide stronger guarantees about provenance and integrity.
+
+#### 11.4.5 Trust
+
+Clients MUST maintain a trust store of accepted certificates or public keys. The mechanism for managing the trust store (e.g., configuration file, system keychain, command-line flags) is implementation-defined. Clients MAY support a `--trust-unsigned` or equivalent flag to allow execution of unsigned archives; this flag SHOULD default to disabled.
 
 ### 11.5 Sensitive Data
 
@@ -390,6 +423,7 @@ A minimal client implementation MUST:
 - Accept a path to a `.opa` file.
 - Extract the archive to a temporary directory with path-safety validation.
 - Parse `META-INF/MANIFEST.MF`.
+- If `META-INF/SIGNATURE.SF` and a corresponding signature block file are present, verify the archive signature (see §11.4).
 - Read `prompt.md` (or the value of `Prompt-File`).
 - If `session/history.json` exists, parse and prepend it to the agent context.
 - Invoke the configured agent with the full context.

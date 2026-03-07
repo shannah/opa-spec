@@ -26,7 +26,7 @@ Extensions MUST be declared in the manifest's `Schema-Extensions` field as space
 
 ```
 Schema-Extensions: https://example.com/opa-ext/tool-config/v1
-                   https://example.com/opa-ext/signing/v1
+                   https://example.com/opa-ext/encryption/v1
 ```
 
 ---
@@ -45,8 +45,8 @@ META-INF/
 └── extensions/
     ├── tool-config/
     │   └── config.json
-    └── signing/
-        └── signature.sig
+    └── encryption/
+        └── config.json
 ```
 
 ---
@@ -56,4 +56,4 @@ META-INF/
 The namespace `https://opa.dev/ext/` is reserved for officially ratified extensions. Third-party extensions MUST use their own domain.
 
 {: .note }
-> Planned official extensions include archive signing and content encryption. Until these are ratified, clients MAY implement signing using `META-INF/SIGNATURE.SF` following the JAR signing convention.
+> Archive signing is part of the core specification (see [Security — Signing](../security/#signing)). Planned official extensions include content encryption.
