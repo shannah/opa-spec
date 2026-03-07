@@ -1,0 +1,46 @@
+title: Open Prompt Archive (OPA)
+description: A portable, self-contained archive format for packaging AI agent prompts with session history, data assets, and execution metadata.
+baseurl: "/opa-spec"
+url: ""
+
+remote_theme: just-the-docs/just-the-docs@v0.10.0
+
+permalink: pretty
+
+exclude:
+  - RFC-0001-OPA.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+aux_links:
+  "GitHub":
+    - "https://github.com/shannah/opa-spec"
+
+nav_enabled: true
+
+heading_anchors: true
+
+color_scheme: dark
+
+search_enabled: true
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+footer_content: "Open Prompt Archive (OPA) Specification &mdash; Draft"
+
+ga_tracking:
+ga_tracking_anonymize_ip: true
+
+callouts:
+  note:
+    title: Note
+    color: blue
+  warning:
+    title: Warning
+    color: red
+  important:
+    title: Important
+    color: yellow
