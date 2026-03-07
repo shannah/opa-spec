@@ -28,7 +28,9 @@ Archives SHOULD use `DEFLATE` compression for text-based entries and MAY use `ST
 <archive>.opa
 │
 ├── META-INF/
-│   └── MANIFEST.MF          # Required. Archive manifest.
+│   ├── MANIFEST.MF          # Required. Archive manifest.
+│   ├── SIGNATURE.SF         # Optional. Signature file (if signed).
+│   └── SIGNATURE.{RSA,DSA,EC} # Optional. Signature block (if signed).
 │
 ├── prompt.md                # Required. The primary prompt file.
 │
@@ -52,6 +54,8 @@ Archives SHOULD use `DEFLATE` compression for text-based entries and MAY use `ST
 
 | Entry | Description |
 |:------|:------------|
+| `META-INF/SIGNATURE.SF` | Signature file. Present in signed archives. See [Security — Signing](../security/#signing). |
+| `META-INF/SIGNATURE.{RSA,DSA,EC}` | Signature block file. Present in signed archives. |
 | `session/history.json` | Session history. Required if `session/` directory is present. See [Session History](../session-history/). |
 | `session/attachments/` | Files referenced in session messages. |
 | `data/` | Data assets for the prompt. See [Data Assets](../data-assets/). |
