@@ -1,0 +1,55 @@
+// Custom styles for OPA Specification site
+
+// Improve hero section spacing
+.main-content {
+  h1:first-child {
+    margin-bottom: 0.25rem;
+  }
+}
+
+// Getting started grid
+.getting-started-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+
+  h3 {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $link-color;
+  }
+}
+
+// Better table styling
+.main-content table {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+// Nicer code blocks
+.main-content pre {
+  border-radius: 6px;
+}
+
+// Button spacing tweaks
+.btn + .btn {
+  margin-left: 0.25rem;
+}
+
+// Labels next to headers
+.d-inline-block + .label {
+  vertical-align: middle;
+}
+
+// Better callout styling
+.main-content .note, .main-content .warning, .main-content .important {
+  border-radius: 6px;
+}
+
+// Hero cards emphasis
+.hero-cards {
+  .note {
+    font-size: 1.05rem;
+  }
+}

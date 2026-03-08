@@ -29,7 +29,7 @@ search_enabled: true
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Open Prompt Archive (OPA) Specification &mdash; Draft"
+footer_content: "Open Prompt Archive (OPA) Specification &mdash; Draft &bull; <a href=\"https://www.jdeploy.com/gh/shannah/opa-runner-releases\">Download OPA Runner</a>"
 
 ga_tracking:
 ga_tracking_anonymize_ip: true
