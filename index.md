@@ -12,8 +12,18 @@ permalink: /
 A portable, self-contained archive format for packaging AI agent prompts together with their session history, data assets, and execution metadata.
 {: .fs-6 .fw-300 }
 
-[View Specification](/opa-spec/specification/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Get OPA Runner](/opa-spec/runner/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[View Specification](/opa-spec/specification/){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 [View on GitHub](https://github.com/shannah/opa-spec){: .btn .fs-5 .mb-4 .mb-md-0 }
+
+---
+
+<div class="hero-cards" markdown="1">
+
+{: .note }
+> **Ready to run OPA files?** Download [OPA Runner](/opa-spec/runner/) — a cross-platform desktop app for opening and executing `.opa` archives in sandboxed containers. Available for Windows, macOS, and Linux.
+
+</div>
 
 ---
 
@@ -27,6 +37,51 @@ The **Open Prompt Archive** is a ZIP-based, portable archive format (`.opa`) tha
 - **Metadata** — manifest describing the archive and execution parameters
 
 OPA archives are distributable units that any compatible client can extract and execute using any AI agent in a sandboxed container environment.
+
+---
+
+## Get Started
+
+<div class="getting-started-grid" markdown="1">
+
+### Run OPA Files
+{: .fs-6 }
+
+Download **OPA Runner** to open and execute `.opa` files on your desktop.
+
+[Download OPA Runner](/opa-spec/runner/){: .btn .btn-primary }
+
+### Create OPA Files
+{: .fs-6 }
+
+Use an official library to generate OPA archives in your preferred language.
+
+[Browse Libraries](/opa-spec/libraries/){: .btn .btn-primary }
+
+### Read the Spec
+{: .fs-6 }
+
+Dive into the full specification to understand the format and build your own tools.
+
+[View Specification](/opa-spec/specification/){: .btn .btn-outline }
+
+</div>
+
+---
+
+## Language Support
+
+Official libraries are available for five languages:
+
+| Language | Package | Install |
+|:---------|:--------|:--------|
+| **Java** | [opa-java](https://github.com/shannah/opa-java) | Maven: `ca.weblite:opa-core` |
+| **JavaScript** | [opa-js](https://github.com/shannah/opa-js) | `npm install opa-js` |
+| **Python** | [opa-python](https://github.com/shannah/opa-python) | `pip install opa-archive` |
+| **PHP** | [opa-php](https://github.com/shannah/opa-php) | `composer require opa/opa-php` |
+| **Ruby** | [opa-ruby](https://github.com/shannah/opa-ruby) | `gem install opa-ruby` |
+
+[See all libraries](/opa-spec/libraries/){: .btn .btn-outline }
 
 ---
 
@@ -71,26 +126,7 @@ sales-summary.opa
 
 ---
 
-## Specification
-
-The OPA specification is currently at **version 0.1.0** (Draft).
-
-Explore the full specification:
-
-- [Overview](/opa-spec/specification/) — Introduction, motivation, and design goals
-- [File Format](/opa-spec/specification/file-format/) — Archive container and directory structure
-- [Manifest](/opa-spec/specification/manifest/) — `META-INF/MANIFEST.MF` fields and format
-- [Prompt File](/opa-spec/specification/prompt-file/) — Prompt format, data references, and template variables
-- [Session History](/opa-spec/specification/session-history/) — `session/history.json` schema and message format
-- [Data Assets](/opa-spec/specification/data-assets/) — The `data/` directory and optional index
-- [Execution Model](/opa-spec/specification/execution-model/) — Client responsibilities, modes, and environment
-- [Extensions](/opa-spec/specification/extensions/) — Extension declaration and namespaces
-- [Security](/opa-spec/specification/security/) — Security considerations and best practices
-
----
-
 ## Status
 
 {: .warning }
 > This specification is currently in **Draft** status (v0.1.0). Version 1.0 will be published following at least two independent interoperable implementations.
-
