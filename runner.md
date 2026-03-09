@@ -20,6 +20,8 @@ A desktop application that opens and executes OPA archives in isolated container
 
 OPA Runner is a cross-platform desktop application that brings OPA files to life. Double-click any `.opa` file to open it in a sandboxed environment where the bundled prompt, data assets, and session history are loaded and executed by an AI agent.
 
+<img src="/opa-spec/assets/images/opa-runner-flow.svg" alt="How OPA Runner Works" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+
 ---
 
 ## Platform Support

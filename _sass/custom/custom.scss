@@ -1,55 +1,787 @@
 // Custom styles for OPA Specification site
+// Modern, clean design with subtle gradients and animations
 
-// Improve hero section spacing
+// ============================================
+// CSS Custom Properties (Theme Variables)
+// ============================================
+:root {
+  --opa-primary: #7c3aed;
+  --opa-primary-light: #a78bfa;
+  --opa-primary-dark: #5b21b6;
+  --opa-accent: #06b6d4;
+  --opa-accent-light: #22d3ee;
+  --opa-success: #10b981;
+  --opa-warning: #f59e0b;
+  --opa-gradient-1: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  --opa-gradient-2: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e3a5f 100%);
+  --opa-gradient-subtle: linear-gradient(180deg, rgba(124, 58, 237, 0.05) 0%, transparent 100%);
+  --opa-card-bg: rgba(255, 255, 255, 0.03);
+  --opa-card-border: rgba(255, 255, 255, 0.08);
+  --opa-card-hover-border: rgba(124, 58, 237, 0.4);
+  --opa-shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --opa-shadow-glow: 0 0 30px rgba(124, 58, 237, 0.15);
+  --opa-radius-sm: 8px;
+  --opa-radius-md: 12px;
+  --opa-radius-lg: 16px;
+  --opa-radius-xl: 24px;
+  --opa-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// ============================================
+// Global Enhancements
+// ============================================
 .main-content {
   h1:first-child {
     margin-bottom: 0.25rem;
   }
 }
 
-// Getting started grid
-.getting-started-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0;
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
 
-  h3 {
-    margin-top: 0;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid $link-color;
+// Selection styling
+::selection {
+  background: var(--opa-primary);
+  color: white;
+}
+
+// ============================================
+// Hero Section
+// ============================================
+.hero-section {
+  position: relative;
+  padding: 2rem 0 3rem;
+  margin-bottom: 2rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    right: -2rem;
+    bottom: 0;
+    background: var(--opa-gradient-subtle);
+    border-radius: 0 0 var(--opa-radius-xl) var(--opa-radius-xl);
+    z-index: -1;
   }
 }
 
-// Better table styling
-.main-content table {
-  border-radius: 4px;
+// Page title styling
+.main-content > h1.fs-9:first-of-type {
+  background: var(--opa-gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+// Subtitle styling
+.fs-6.fw-300 {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+// ============================================
+// Buttons
+// ============================================
+.btn {
+  border-radius: var(--opa-radius-sm);
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  transition: var(--opa-transition);
+  position: relative;
   overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
 }
 
-// Nicer code blocks
-.main-content pre {
-  border-radius: 6px;
-}
-
-// Button spacing tweaks
 .btn + .btn {
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
 }
 
-// Labels next to headers
-.d-inline-block + .label {
-  vertical-align: middle;
+.btn-primary {
+  background: var(--opa-gradient-1);
+  border: none;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(124, 58, 237, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
-// Better callout styling
-.main-content .note, .main-content .warning, .main-content .important {
-  border-radius: 6px;
+.btn-outline {
+  border: 2px solid var(--opa-primary-light);
+  color: var(--opa-primary-light);
+  background: transparent;
+
+  &:hover {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: var(--opa-primary);
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================
+// Cards and Grid Layout
+// ============================================
+.getting-started-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+
+  > * {
+    background: var(--opa-card-bg);
+    border: 1px solid var(--opa-card-border);
+    border-radius: var(--opa-radius-lg);
+    padding: 1.75rem;
+    transition: var(--opa-transition);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--opa-gradient-1);
+      opacity: 0;
+      transition: var(--opa-transition);
+    }
+
+    &:hover {
+      border-color: var(--opa-card-hover-border);
+      transform: translateY(-4px);
+      box-shadow: var(--opa-shadow-glow);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--opa-primary);
+    color: var(--opa-primary-light);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+}
+
+// Feature cards
+.feature-card {
+  background: var(--opa-card-bg);
+  border: 1px solid var(--opa-card-border);
+  border-radius: var(--opa-radius-lg);
+  padding: 1.5rem;
+  transition: var(--opa-transition);
+
+  &:hover {
+    border-color: var(--opa-card-hover-border);
+    box-shadow: var(--opa-shadow-glow);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--opa-gradient-1);
+    border-radius: var(--opa-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+// ============================================
+// Tables
+// ============================================
+.main-content table {
+  border-radius: var(--opa-radius-md);
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--opa-card-bg);
+  border: 1px solid var(--opa-card-border);
+  width: 100%;
+  margin: 1.5rem 0;
+
+  th {
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--opa-primary-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 1rem;
+    border-bottom: 2px solid var(--opa-primary);
+  }
+
+  td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--opa-card-border);
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: rgba(124, 58, 237, 0.05);
+  }
+
+  code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
+}
+
+// ============================================
+// Code Blocks
+// ============================================
+.main-content pre {
+  border-radius: var(--opa-radius-md);
+  border: 1px solid var(--opa-card-border);
+  background: rgba(0, 0, 0, 0.4) !important;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 1.25rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--opa-gradient-1);
+    border-radius: var(--opa-radius-md) var(--opa-radius-md) 0 0;
+  }
+}
+
+.main-content code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  font-size: 0.875em;
+}
+
+.main-content :not(pre) > code {
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--opa-primary-light);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+// ============================================
+// Callouts
+// ============================================
+.main-content .note,
+.main-content .warning,
+.main-content .important {
+  border-radius: var(--opa-radius-md);
+  padding: 1.25rem 1.5rem;
+  border-left-width: 4px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.main-content .note {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: var(--opa-accent);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.05));
+  }
+}
+
+.main-content .warning {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+}
+
+.main-content .important {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--opa-warning);
 }
 
 // Hero cards emphasis
 .hero-cards {
+  margin: 2rem 0;
+
   .note {
     font-size: 1.05rem;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    padding: 1.5rem 2rem;
+
+    strong {
+      color: var(--opa-accent-light);
+    }
+  }
+}
+
+// ============================================
+// Labels and Badges
+// ============================================
+.label {
+  border-radius: var(--opa-radius-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.6rem;
+}
+
+.label-green {
+  background: linear-gradient(135deg, var(--opa-success), #059669);
+  color: white;
+}
+
+.d-inline-block + .label {
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+// ============================================
+// Horizontal Rules
+// ============================================
+.main-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--opa-card-border), transparent);
+  margin: 2.5rem 0;
+}
+
+// ============================================
+// Section Headers
+// ============================================
+.main-content h2 {
+  color: white;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--opa-card-border);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--opa-gradient-1);
+  }
+}
+
+.main-content h3 {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+// ============================================
+// Infographic Placeholders
+// ============================================
+.infographic-placeholder {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+  border: 2px dashed var(--opa-primary-light);
+  border-radius: var(--opa-radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+
+  .placeholder-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--opa-primary-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .placeholder-description {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+// ============================================
+// Navigation Enhancements
+// ============================================
+.side-bar {
+  border-right: 1px solid var(--opa-card-border);
+
+  .nav-list-item {
+    border-radius: var(--opa-radius-sm);
+    margin: 2px 0.5rem;
+
+    .nav-list-link {
+      border-radius: var(--opa-radius-sm);
+      transition: var(--opa-transition);
+
+      &:hover {
+        background: rgba(124, 58, 237, 0.1);
+      }
+
+      &.active {
+        background: rgba(124, 58, 237, 0.2);
+        border-left: 3px solid var(--opa-primary);
+      }
+    }
+  }
+}
+
+// ============================================
+// Links
+// ============================================
+.main-content a:not(.btn):not(.anchor-heading) {
+  color: var(--opa-accent-light);
+  text-decoration: none;
+  position: relative;
+  transition: var(--opa-transition);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--opa-accent);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: var(--opa-accent);
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+// ============================================
+// Lists
+// ============================================
+.main-content ul:not(.nav-list) {
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      background: var(--opa-gradient-1);
+      border-radius: 50%;
+    }
+  }
+
+  ul li::before {
+    background: var(--opa-accent);
+    width: 4px;
+    height: 4px;
+  }
+}
+
+.main-content ol {
+  counter-reset: list-counter;
+
+  li {
+    counter-increment: list-counter;
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+
+    &::before {
+      content: counter(list-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--opa-gradient-1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+    }
+  }
+}
+
+// ============================================
+// Language/Feature Grid (for Libraries page)
+// ============================================
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.language-card {
+  background: var(--opa-card-bg);
+  border: 1px solid var(--opa-card-border);
+  border-radius: var(--opa-radius-lg);
+  padding: 1.5rem;
+  transition: var(--opa-transition);
+
+  &:hover {
+    border-color: var(--opa-card-hover-border);
+    transform: translateY(-4px);
+    box-shadow: var(--opa-shadow-glow);
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0;
+    color: white;
+
+    .lang-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+  }
+}
+
+// ============================================
+// Spec Component Grid
+// ============================================
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+
+  a {
+    background: var(--opa-card-bg);
+    border: 1px solid var(--opa-card-border);
+    border-radius: var(--opa-radius-md);
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: var(--opa-transition);
+    display: block;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      border-color: var(--opa-card-hover-border);
+      transform: translateY(-2px);
+      box-shadow: var(--opa-shadow-glow);
+
+      h4 {
+        color: var(--opa-primary-light);
+      }
+    }
+
+    h4 {
+      color: white;
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+      transition: var(--opa-transition);
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+}
+
+// ============================================
+// Footer Enhancements
+// ============================================
+.site-footer {
+  border-top: 1px solid var(--opa-card-border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+
+  a {
+    color: var(--opa-accent-light);
+  }
+}
+
+// ============================================
+// Scrollbar Styling
+// ============================================
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--opa-primary);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--opa-primary-light);
+  }
+}
+
+// ============================================
+// Animations
+// ============================================
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-content > *:first-child {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+// ============================================
+// Responsive Adjustments
+// ============================================
+@media (max-width: 768px) {
+  .getting-started-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    text-align: center;
+
+    & + .btn {
+      margin-left: 0;
+    }
+  }
+
+  .infographic-placeholder {
+    padding: 2rem 1rem;
+  }
+}
+
+// ============================================
+// Print Styles
+// ============================================
+@media print {
+  .side-bar,
+  .site-footer,
+  .btn {
+    display: none;
+  }
+
+  .main-content {
+    max-width: 100%;
+    padding: 0;
   }
 }

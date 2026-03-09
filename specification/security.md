@@ -14,6 +14,10 @@ Path traversal, prompt injection, resource limits, signing, and sensitive data h
 
 ---
 
+<img src="/opa-spec/assets/images/opa-security-model.svg" alt="OPA Security Model" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+
+---
+
 ## Path Traversal
 
 Clients MUST validate all archive entry paths before extraction (see [File Format — Path Safety](../file-format/#path-safety)). Any path containing `..` or beginning with `/` MUST cause the client to reject the archive.
