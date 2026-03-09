@@ -27,6 +27,16 @@ A portable, self-contained archive format for packaging AI agent prompts togethe
 
 ---
 
+## Why OPA?
+
+Running AI analysis on the server is expensive. OPA lets you **package data with analysis instructions** and distribute it to users who run it with their own AI — shifting costs, preserving privacy, and giving users the flexibility to add their own context.
+
+<img src="/opa-spec/assets/images/opa-end-to-end-flow.svg" alt="How OPA bridges server intelligence and user context" style="width:100%; max-width:960px; margin:1.5rem auto; display:block;" />
+
+[See Use Cases](/opa-spec/use-cases/){: .btn .btn-outline }
+
+---
+
 ## What is OPA?
 
 The **Open Prompt Archive** is a ZIP-based, portable archive format (`.opa`) that packages everything needed to execute an AI agent task:
@@ -37,6 +47,8 @@ The **Open Prompt Archive** is a ZIP-based, portable archive format (`.opa`) tha
 - **Metadata** — manifest describing the archive and execution parameters
 
 OPA archives are distributable units that any compatible client can extract and execute using any AI agent in a sandboxed container environment.
+
+<img src="/opa-spec/assets/images/opa-architecture-overview.svg" alt="OPA Architecture Overview" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 ---
 
@@ -65,6 +77,13 @@ Dive into the full specification to understand the format and build your own too
 
 [View Specification](/opa-spec/specification/){: .btn .btn-outline }
 
+### Explore Use Cases
+{: .fs-6 }
+
+See real-world examples of OPA in action, from inventory analysis to compliance audits.
+
+[View Use Cases](/opa-spec/use-cases/){: .btn .btn-outline }
+
 </div>
 
 ---
@@ -86,6 +105,8 @@ Official libraries are available for five languages:
 ---
 
 ## Key Design Principles
+
+<img src="/opa-spec/assets/images/design-principles.svg" alt="Design Principles" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 | Principle | Description |
 |:----------|:------------|

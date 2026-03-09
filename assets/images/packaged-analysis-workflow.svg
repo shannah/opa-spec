@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="pa-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0a1a"/>
+      <stop offset="100%" stop-color="#1a1025"/>
+    </linearGradient>
+    <linearGradient id="pa-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="pa-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <marker id="pa-arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7" fill="#7c3aed" opacity="0.7"/>
+    </marker>
+    <marker id="pa-arrow-c" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7" fill="#06b6d4" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="340" fill="url(#pa-bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700" letter-spacing="1">Packaged Analysis Workflow</text>
+  <line x1="260" y1="48" x2="540" y2="48" stroke="url(#pa-purple)" stroke-width="2" opacity="0.6"/>
+
+  <!-- Provider side label -->
+  <rect x="30" y="65" width="330" height="22" rx="11" fill="#7c3aed" opacity="0.15"/>
+  <text x="195" y="80" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600" letter-spacing="1">PROVIDER SIDE</text>
+
+  <!-- User side label -->
+  <rect x="440" y="65" width="330" height="22" rx="11" fill="#06b6d4" opacity="0.15"/>
+  <text x="605" y="80" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="600" letter-spacing="1">USER SIDE</text>
+
+  <!-- Step 1: Server Generates OPA -->
+  <g transform="translate(105, 170)">
+    <rect x="-70" y="-50" width="140" height="100" rx="12" fill="#1e1530" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="0" y="-18" text-anchor="middle" fill="#e2e8f0" font-size="24">🖥️</text>
+    <text x="0" y="4" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">Server</text>
+    <text x="0" y="18" text-anchor="middle" fill="#a78bfa" font-size="9">Generates .opa</text>
+    <text x="0" y="32" text-anchor="middle" fill="#94a3b8" font-size="8">Data + prompt</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <line x1="180" y1="170" x2="230" y2="170" stroke="#7c3aed" stroke-width="1.5" opacity="0.5" marker-end="url(#pa-arrow)"/>
+
+  <!-- Step 2: Download -->
+  <g transform="translate(295, 170)">
+    <rect x="-55" y="-50" width="110" height="100" rx="12" fill="#1e1530" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="0" y="-18" text-anchor="middle" fill="#e2e8f0" font-size="24">📦</text>
+    <text x="0" y="4" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">Download</text>
+    <text x="0" y="18" text-anchor="middle" fill="#a78bfa" font-size="9">.opa file</text>
+  </g>
+
+  <!-- Arrow 2→3 (crossing the boundary) -->
+  <line x1="355" y1="170" x2="408" y2="170" stroke="#06b6d4" stroke-width="1.5" opacity="0.5" marker-end="url(#pa-arrow-c)"/>
+
+  <!-- Dashed boundary line -->
+  <line x1="400" y1="90" x2="400" y2="290" stroke="#94a3b8" stroke-width="1" stroke-dasharray="6,4" opacity="0.2"/>
+
+  <!-- Step 3: User adds context -->
+  <g transform="translate(470, 170)">
+    <rect x="-55" y="-50" width="110" height="100" rx="12" fill="#1e1530" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="0" y="-18" text-anchor="middle" fill="#e2e8f0" font-size="24">👤</text>
+    <text x="0" y="4" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">User Adds</text>
+    <text x="0" y="18" text-anchor="middle" fill="#67e8f9" font-size="9">Own context</text>
+    <text x="0" y="32" text-anchor="middle" fill="#94a3b8" font-size="8">+ knowledge</text>
+  </g>
+
+  <!-- Arrow 3→4 -->
+  <line x1="530" y1="170" x2="575" y2="170" stroke="#06b6d4" stroke-width="1.5" opacity="0.5" marker-end="url(#pa-arrow-c)"/>
+
+  <!-- Step 4: Local AI -->
+  <g transform="translate(635, 170)">
+    <rect x="-55" y="-50" width="110" height="100" rx="12" fill="#1e1530" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="0" y="-18" text-anchor="middle" fill="#e2e8f0" font-size="24">🤖</text>
+    <text x="0" y="4" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">Local AI</text>
+    <text x="0" y="18" text-anchor="middle" fill="#67e8f9" font-size="9">Analyzes data</text>
+    <text x="0" y="32" text-anchor="middle" fill="#94a3b8" font-size="8">User's own key</text>
+  </g>
+
+  <!-- Arrow 4→5 -->
+  <line x1="695" y1="170" x2="720" y2="170" stroke="#06b6d4" stroke-width="1.5" opacity="0.5" marker-end="url(#pa-arrow-c)"/>
+
+  <!-- Step 5: Results -->
+  <g transform="translate(755, 170)">
+    <rect x="-30" y="-50" width="60" height="100" rx="12" fill="#1e1530" stroke="#10b981" stroke-width="1.5"/>
+    <text x="0" y="-10" text-anchor="middle" fill="#e2e8f0" font-size="24">📋</text>
+    <text x="0" y="14" text-anchor="middle" fill="#10b981" font-size="9" font-weight="600">Results</text>
+  </g>
+
+  <!-- Bottom benefits bar -->
+  <g transform="translate(400, 310)">
+    <rect x="-350" y="-16" width="700" height="32" rx="16" fill="#1e1530" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+    <text x="-230" y="4" text-anchor="middle" fill="#a78bfa" font-size="9" font-weight="600">💰 Zero server cost</text>
+    <text x="-80" y="4" text-anchor="middle" fill="#67e8f9" font-size="9" font-weight="600">🔒 Data stays local</text>
+    <text x="70" y="4" text-anchor="middle" fill="#a78bfa" font-size="9" font-weight="600">🧠 User adds context</text>
+    <text x="230" y="4" text-anchor="middle" fill="#67e8f9" font-size="9" font-weight="600">🔄 Re-run anytime</text>
+  </g>
+</svg>
