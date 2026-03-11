@@ -16,7 +16,7 @@ Client responsibilities, execution modes, output conventions, and environment va
 
 ## Client Responsibilities
 
-<img src="/opa-spec/assets/images/opa-execution-flow.svg" alt="OPA Execution Flow" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/opa-execution-flow.svg" alt="OPA Execution Flow" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 A conformant client MUST:
 

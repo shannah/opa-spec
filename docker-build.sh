@@ -9,7 +9,7 @@ usage() {
     echo "Usage: $0 {serve|build|stop}"
     echo
     echo "Commands:"
-    echo "  serve   Build the Docker image and serve the site at http://localhost:${PORT}/opa-spec/"
+    echo "  serve   Build the Docker image and serve the site at http://localhost:${PORT}/"
     echo "  build   Build the site into _site/ without serving"
     echo "  stop    Stop the running dev server container"
     echo
@@ -27,7 +27,7 @@ case "${1:-}" in
         build_image
         # Remove any existing container with the same name
         docker rm -f "${CONTAINER_NAME}" 2>/dev/null || true
-        echo "Starting dev server at http://localhost:${PORT}/opa-spec/"
+        echo "Starting dev server at http://localhost:${PORT}/"
         docker run --rm --name "${CONTAINER_NAME}" \
             -p "${PORT}:4000" \
             -v "$(pwd):/site" \

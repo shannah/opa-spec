@@ -18,7 +18,7 @@ How organizations use OPA to distribute AI-powered analysis without the cost of 
 
 Running LLM analysis on the server side is expensive. Every API call to process user data consumes tokens, and costs scale linearly with usage. For complex analytical tasks requiring large context windows, these costs quickly become prohibitive.
 
-<img src="/opa-spec/assets/images/server-vs-client-cost.svg" alt="Server vs. Client Cost Model" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/server-vs-client-cost.svg" alt="Server vs. Client Cost Model" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 OPA solves this by shifting the computation to the user. Instead of running expensive AI analysis on your servers, you package the data and analysis instructions into an OPA archive. Users download and run it with their own AI agent — using their own API keys, local models, or enterprise AI subscriptions they're already paying for.
 
@@ -35,7 +35,7 @@ The most compelling use case for OPA is **packaging complex data with analysis p
 3. **Privacy** — Sensitive data never leaves the user's environment
 4. **Flexibility** — Users can re-run analysis with different models or parameters
 
-<img src="/opa-spec/assets/images/packaged-analysis-workflow.svg" alt="Packaged Analysis Workflow" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/packaged-analysis-workflow.svg" alt="Packaged Analysis Workflow" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 ---
 
@@ -56,7 +56,7 @@ A skilled analyst can work through this data to find the root cause, but it's ti
 
 ### The OPA Solution
 
-<img src="/opa-spec/assets/images/hotel-inventory-analysis.svg" alt="Hotel Inventory Analysis Flow" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/hotel-inventory-analysis.svg" alt="Hotel Inventory Analysis Flow" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 With OPA, the hotel system can:
 
@@ -134,7 +134,7 @@ Export system logs, configuration, and diagnostic prompts. Support engineers ana
 
 Share datasets with analysis methodologies. Researchers can reproduce analyses or extend them with their own AI tools.
 
-<img src="/opa-spec/assets/images/use-case-landscape.svg" alt="OPA Use Case Landscape" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/use-case-landscape.svg" alt="OPA Use Case Landscape" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 ---
 
@@ -152,4 +152,4 @@ Share datasets with analysis methodologies. Researchers can reproduce analyses o
 ---
 
 {: .note }
-> **Ready to package your own analysis?** Check out the [language libraries](/opa-spec/libraries/) to start generating OPA archives from your application, or read the [specification](/opa-spec/specification/) to understand the format in depth.
+> **Ready to package your own analysis?** Check out the [language libraries](/libraries/) to start generating OPA archives from your application, or read the [specification](/specification/) to understand the format in depth.

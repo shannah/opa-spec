@@ -1,7 +1,7 @@
 title: Open Prompt Archive (OPA)
 description: A portable, self-contained archive format for packaging AI agent prompts with session history, data assets, and execution metadata.
-baseurl: "/opa-spec"
-url: ""
+baseurl: ""
+url: "https://openpromptarchive.com"
 
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 
