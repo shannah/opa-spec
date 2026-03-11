@@ -63,47 +63,14 @@ No existing standard addresses all of these concerns in a single, self-describin
 <img src="/assets/images/opa-specification-map.svg" alt="OPA Specification Map" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 <div class="spec-grid">
-
-<a href="file-format/">
-<h4>File Format</h4>
-<p>ZIP-based container, directory structure, and path safety</p>
-</a>
-
-<a href="manifest/">
-<h4>Manifest</h4>
-<p>META-INF/MANIFEST.MF required and optional fields</p>
-</a>
-
-<a href="prompt-file/">
-<h4>Prompt File</h4>
-<p>Prompt format, data asset references, and template variables</p>
-</a>
-
-<a href="session-history/">
-<h4>Session History</h4>
-<p>session/history.json schema and message format</p>
-</a>
-
-<a href="data-assets/">
-<h4>Data Assets</h4>
-<p>The data/ directory and optional data index</p>
-</a>
-
-<a href="execution-model/">
-<h4>Execution Model</h4>
-<p>Client responsibilities, execution modes, and environment</p>
-</a>
-
-<a href="extensions/">
-<h4>Extensions</h4>
-<p>Extension declaration, files, and namespaces</p>
-</a>
-
-<a href="security/">
-<h4>Security</h4>
-<p>Path traversal, prompt injection, resource limits</p>
-</a>
-
+<a href="file-format/"><span class="spec-title">File Format</span><span class="spec-desc">ZIP-based container, directory structure, and path safety</span></a>
+<a href="manifest/"><span class="spec-title">Manifest</span><span class="spec-desc">META-INF/MANIFEST.MF required and optional fields</span></a>
+<a href="prompt-file/"><span class="spec-title">Prompt File</span><span class="spec-desc">Prompt format, data asset references, and template variables</span></a>
+<a href="session-history/"><span class="spec-title">Session History</span><span class="spec-desc">session/history.json schema and message format</span></a>
+<a href="data-assets/"><span class="spec-title">Data Assets</span><span class="spec-desc">The data/ directory and optional data index</span></a>
+<a href="execution-model/"><span class="spec-title">Execution Model</span><span class="spec-desc">Client responsibilities, execution modes, and environment</span></a>
+<a href="extensions/"><span class="spec-title">Extensions</span><span class="spec-desc">Extension declaration, files, and namespaces</span></a>
+<a href="security/"><span class="spec-title">Security</span><span class="spec-desc">Path traversal, prompt injection, resource limits</span></a>
 </div>
 
 ---
