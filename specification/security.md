@@ -14,7 +14,7 @@ Path traversal, prompt injection, resource limits, signing, and sensitive data h
 
 ---
 
-<img src="/opa-spec/assets/images/opa-security-model.svg" alt="OPA Security Model" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/opa-security-model.svg" alt="OPA Security Model" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 ---
 

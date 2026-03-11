@@ -20,7 +20,7 @@ A desktop application that opens and executes OPA archives in isolated container
 
 OPA Runner is a cross-platform desktop application that brings OPA files to life. Double-click any `.opa` file to open it in a sandboxed environment where the bundled prompt, data assets, and session history are loaded and executed by an AI agent.
 
-<img src="/opa-spec/assets/images/opa-runner-flow.svg" alt="How OPA Runner Works" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/opa-runner-flow.svg" alt="How OPA Runner Works" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 ---
 
@@ -47,7 +47,7 @@ OPA Runner is available for all major operating systems:
 
 ## Creating OPA Files
 
-To create `.opa` files that you can open with OPA Runner, use one of the official [language libraries](/opa-spec/libraries/):
+To create `.opa` files that you can open with OPA Runner, use one of the official [language libraries](/libraries/):
 
 - **Java** — `opa-java`
 - **JavaScript** — `opa-js`
@@ -55,4 +55,4 @@ To create `.opa` files that you can open with OPA Runner, use one of the officia
 - **PHP** — `opa-php`
 - **Ruby** — `opa-ruby`
 
-Or build archives manually following the [specification](/opa-spec/specification/) — they're just ZIP files with a specific structure.
+Or build archives manually following the [specification](/specification/) — they're just ZIP files with a specific structure.

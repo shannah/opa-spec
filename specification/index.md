@@ -60,7 +60,7 @@ No existing standard addresses all of these concerns in a single, self-describin
 
 ## Specification Components
 
-<img src="/opa-spec/assets/images/opa-specification-map.svg" alt="OPA Specification Map" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/opa-specification-map.svg" alt="OPA Specification Map" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 <div class="spec-grid" markdown="1">
 

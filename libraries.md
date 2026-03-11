@@ -16,7 +16,7 @@ Official libraries for creating, signing, and verifying OPA files in your langua
 
 All libraries follow the OPA specification and support archive creation, digital signing, and signature verification. Each is open-source under the MIT license.
 
-<img src="/opa-spec/assets/images/library-ecosystem.svg" alt="Library Ecosystem" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/library-ecosystem.svg" alt="Library Ecosystem" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 ## Java
 {: .d-inline-block }
@@ -132,4 +132,4 @@ gem install opa-ruby
 ---
 
 {: .note }
-> Don't see your language? The OPA format is built on ZIP and JSON — standard tools in every ecosystem. Check the [specification](/opa-spec/specification/) for everything you need to build your own implementation.
+> Don't see your language? The OPA format is built on ZIP and JSON — standard tools in every ecosystem. Check the [specification](/specification/) for everything you need to build your own implementation.

@@ -12,8 +12,8 @@ permalink: /
 A portable, self-contained archive format for packaging AI agent prompts together with their session history, data assets, and execution metadata.
 {: .fs-6 .fw-300 }
 
-[Get OPA Runner](/opa-spec/runner/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View Specification](/opa-spec/specification/){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Get OPA Runner](/runner/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[View Specification](/specification/){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 [View on GitHub](https://github.com/shannah/opa-spec){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
@@ -21,7 +21,7 @@ A portable, self-contained archive format for packaging AI agent prompts togethe
 <div class="hero-cards" markdown="1">
 
 {: .note }
-> **Ready to run OPA files?** Download [OPA Runner](/opa-spec/runner/) — a cross-platform desktop app for opening and executing `.opa` archives in sandboxed containers. Available for Windows, macOS, and Linux.
+> **Ready to run OPA files?** Download [OPA Runner](/runner/) — a cross-platform desktop app for opening and executing `.opa` archives in sandboxed containers. Available for Windows, macOS, and Linux.
 
 </div>
 
@@ -31,9 +31,9 @@ A portable, self-contained archive format for packaging AI agent prompts togethe
 
 Running AI analysis on the server is expensive. OPA lets you **package data with analysis instructions** and distribute it to users who run it with their own AI — shifting costs, preserving privacy, and giving users the flexibility to add their own context.
 
-<img src="/opa-spec/assets/images/opa-end-to-end-flow.svg" alt="How OPA bridges server intelligence and user context" style="width:100%; max-width:960px; margin:1.5rem auto; display:block;" />
+<img src="/assets/images/opa-end-to-end-flow.svg" alt="How OPA bridges server intelligence and user context" style="width:100%; max-width:960px; margin:1.5rem auto; display:block;" />
 
-[See Use Cases](/opa-spec/use-cases/){: .btn .btn-outline }
+[See Use Cases](/use-cases/){: .btn .btn-outline }
 
 ---
 
@@ -48,7 +48,7 @@ The **Open Prompt Archive** is a ZIP-based, portable archive format (`.opa`) tha
 
 OPA archives are distributable units that any compatible client can extract and execute using any AI agent in a sandboxed container environment.
 
-<img src="/opa-spec/assets/images/opa-architecture-overview.svg" alt="OPA Architecture Overview" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/opa-architecture-overview.svg" alt="OPA Architecture Overview" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 ---
 
@@ -61,28 +61,28 @@ OPA archives are distributable units that any compatible client can extract and 
 
 Download **OPA Runner** to open and execute `.opa` files on your desktop.
 
-[Download OPA Runner](/opa-spec/runner/){: .btn .btn-primary }
+[Download OPA Runner](/runner/){: .btn .btn-primary }
 
 ### Create OPA Files
 {: .fs-6 }
 
 Use an official library to generate OPA archives in your preferred language.
 
-[Browse Libraries](/opa-spec/libraries/){: .btn .btn-primary }
+[Browse Libraries](/libraries/){: .btn .btn-primary }
 
 ### Read the Spec
 {: .fs-6 }
 
 Dive into the full specification to understand the format and build your own tools.
 
-[View Specification](/opa-spec/specification/){: .btn .btn-outline }
+[View Specification](/specification/){: .btn .btn-outline }
 
 ### Explore Use Cases
 {: .fs-6 }
 
 See real-world examples of OPA in action, from inventory analysis to compliance audits.
 
-[View Use Cases](/opa-spec/use-cases/){: .btn .btn-outline }
+[View Use Cases](/use-cases/){: .btn .btn-outline }
 
 </div>
 
@@ -100,13 +100,13 @@ Official libraries are available for five languages:
 | **PHP** | [opa-php](https://github.com/shannah/opa-php) | `composer require opa/opa-php` |
 | **Ruby** | [opa-ruby](https://github.com/shannah/opa-ruby) | `gem install opa-ruby` |
 
-[See all libraries](/opa-spec/libraries/){: .btn .btn-outline }
+[See all libraries](/libraries/){: .btn .btn-outline }
 
 ---
 
 ## Key Design Principles
 
-<img src="/opa-spec/assets/images/design-principles.svg" alt="Design Principles" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
+<img src="/assets/images/design-principles.svg" alt="Design Principles" style="width:100%; max-width:800px; margin:1rem auto; display:block;" />
 
 | Principle | Description |
 |:----------|:------------|
