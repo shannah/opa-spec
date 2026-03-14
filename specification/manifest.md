@@ -26,7 +26,6 @@ The manifest follows the [JAR manifest format](https://docs.oracle.com/en/java/d
 |:------|:------------|
 | `Manifest-Version` | MUST be `1.0`. |
 | `OPA-Version` | The OPA specification version. MUST be `0.1` for this revision. |
-| `Prompt-File` | Archive-relative path to the primary prompt file. Defaults to `prompt.md`. |
 
 ---
 
@@ -34,6 +33,7 @@ The manifest follows the [JAR manifest format](https://docs.oracle.com/en/java/d
 
 | Field | Description |
 |:------|:------------|
+| `Prompt-File` | Archive-relative path to the primary prompt file. Defaults to `prompt.md`. |
 | `Created-By` | Free-form string identifying the tool that created the archive. |
 | `Created-At` | ISO 8601 UTC timestamp of archive creation (e.g., `2026-03-04T12:00:00Z`). |
 | `Title` | Short human-readable title for the task. |
